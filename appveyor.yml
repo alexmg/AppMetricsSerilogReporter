@@ -13,7 +13,7 @@ before_build:
 - cmd: dotnet restore --verbosity m
 
 after_build:
-- cmd: dotnet pack
+- cmd: dotnet pack src\AppMetricsSerilogReporter
 
 artifacts:
 - path: src\**\*.nupkg
