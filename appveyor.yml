@@ -9,4 +9,9 @@ clone_depth: 1
 configuration: Release
 
 before_build:
-- cmd: dotnet restore
+- cmd: dotnet --version
+- cmd: dotnet restore --verbosity m
+
+artifacts:
+- path: src\**\*.nupkg
+  name: MyGet
