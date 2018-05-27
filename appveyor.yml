@@ -12,6 +12,9 @@ before_build:
 - cmd: dotnet --version
 - cmd: dotnet restore --verbosity m
 
+after_build:
+- cmd: dotnet publish
+
 artifacts:
 - path: src\**\*.nupkg
   name: MyGet
