@@ -5,9 +5,14 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMetricsSerilogReporter", "src\AppMetricsSerilogReporter\AppMetricsSerilogReporter.csproj", "{14241B93-B31F-442F-A371-9FA8B0405D40}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Metrics.Reporting.Serilog.Test", "test\AppMetricsSerilogReporter.Tests\AppMetricsSerilogReporter.Tests.csproj", "{4CB94204-E827-4CE2-A1F8-2347D1349E23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMetricsSerilogReporter.Tests", "test\AppMetricsSerilogReporter.Tests\AppMetricsSerilogReporter.Tests.csproj", "{4CB94204-E827-4CE2-A1F8-2347D1349E23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMetricsSerilogReporter.Example", "example\AppMetricsSerilogReporter.Example\AppMetricsSerilogReporter.Example.csproj", "{69F2F8FC-C7F9-41C5-8480-22B61884306C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMetricsSerilogReporter.Example", "example\AppMetricsSerilogReporter.Example\AppMetricsSerilogReporter.Example.csproj", "{69F2F8FC-C7F9-41C5-8480-22B61884306C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3026DA0-DCCC-479A-8330-DA85B3C1F368}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
