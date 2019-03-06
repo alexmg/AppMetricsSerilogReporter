@@ -171,14 +171,7 @@ namespace AppMetricsSerilogReporter.Example
             {
                 metrics.Measure.Gauge.SetValue(gauge, process.PrivateMemorySize64);
 
-                try
-                {
-                    await Task.Delay(delay, token);
-                }
-                catch (TaskCanceledException)
-                {
-                    await Task.CompletedTask;
-                }
+                await DelayOrComplete(token, delay);
             }
         }
 
