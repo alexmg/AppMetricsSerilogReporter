@@ -10,7 +10,7 @@
     <PackageTags>appmetrics;metrics;serilog;reporting</PackageTags>
     <PackageReleaseNotes>Release notes are at https://github.com/alexmg/AppMetricsSerilogReporter/releases</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/alexmg/AppMetricsSerilogReporter</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/alexmg/AppMetricsSerilogReporter</RepositoryUrl>
     <Authors>Alex Meyer-Gleaves</Authors>
