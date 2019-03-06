@@ -33,7 +33,7 @@ namespace AppMetricsSerilogReporter.Tests
             {
                 var options = new SerilogMetricsReporterOptions {LogEventLevel = logEventLevel};
                 var writer = new SerilogMetricSnapshotWriter(options);
-                writer.Write("context", "name", 123, MetricTags.Empty, DateTime.UtcNow);
+                writer.Write("context", "name", "value", 123, MetricTags.Empty, DateTime.UtcNow);
 
                 TestCorrelator.GetLogEventsFromCurrentContext()
                     .Should().ContainSingle()
@@ -74,7 +74,7 @@ namespace AppMetricsSerilogReporter.Tests
                 var writer = new SerilogMetricSnapshotWriter(options);
                 var timestamp = DateTime.UtcNow;
 
-                writer.Write("context", "name", 123, MetricTags.Empty, timestamp);
+                writer.Write("context", "name", "value", 123, MetricTags.Empty, timestamp);
 
                 TestCorrelator.GetLogEventsFromCurrentContext()
                     .Should().ContainSingle()
@@ -95,7 +95,7 @@ namespace AppMetricsSerilogReporter.Tests
                 var writer = new SerilogMetricSnapshotWriter(options);
                 var timestamp = DateTime.UtcNow;
 
-                writer.Write("context", "name", 123, MetricTags.Empty, timestamp);
+                writer.Write("context", "name", "value", 123, MetricTags.Empty, timestamp);
 
                 TestCorrelator.GetLogEventsFromCurrentContext()
                     .Should().ContainSingle()
@@ -112,7 +112,7 @@ namespace AppMetricsSerilogReporter.Tests
                 var writer = new SerilogMetricSnapshotWriter(options);
                 var metricTags = MetricTags.FromSetItemString("foo:10,bar:20");
 
-                writer.Write("context", "name", 123, metricTags, DateTime.UtcNow);
+                writer.Write("context", "name", "value", 123, metricTags, DateTime.UtcNow);
 
                 var tagsProperty = metricTags.Keys.Zip(metricTags.Values, (key, value) =>
                     new KeyValuePair<ScalarValue, LogEventPropertyValue>(

@@ -28,11 +28,14 @@ namespace AppMetricsSerilogReporter
         public MetricsMediaTypeValue MediaType => new MetricsMediaTypeValue("text", "vnd.appmetrics.metrics.serilog", "v1", "json");
 
         /// <inheritdoc />
+        public MetricFields MetricFields { get; set; }
+
+        /// <inheritdoc />
         public Task WriteAsync(Stream output, MetricsDataValueSource metricsData, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var metricSnapshotWriter = new SerilogMetricSnapshotWriter(_options))
             {
-                _serializer.Serialize(metricSnapshotWriter, metricsData);
+                _serializer.Serialize(metricSnapshotWriter, metricsData, MetricFields);
             }
 
             return Task.CompletedTask;

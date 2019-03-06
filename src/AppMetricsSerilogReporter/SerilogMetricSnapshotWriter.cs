@@ -18,9 +18,6 @@ namespace AppMetricsSerilogReporter
         private readonly MessageTemplates _messageTemplates;
         private readonly MessageTemplateParser _parser = new MessageTemplateParser();
 
-        /// <inheritdoc />
-        public GeneratedMetricNameMapping MetricNameMapping { get; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SerilogMetricSnapshotWriter"/> class.
         /// </summary>
@@ -29,16 +26,14 @@ namespace AppMetricsSerilogReporter
         {
             _logEventLevel = options.LogEventLevel;
             _messageTemplates = options.MessageTemplates;
-
-            MetricNameMapping = new GeneratedMetricNameMapping();
         }
 
         /// <inheritdoc />
-        public void Write(string context, string name, object value, MetricTags tags, DateTime timestamp)
+        public void Write(string context, string name, string field, object value, MetricTags tags, DateTime timestamp)
         {
             var contextProperty = BuildContextProperty(context);
             var nameProperty = BuildNameProperty(name);
-            var valueProperty = new LogEventProperty("value", new ScalarValue(value));
+            var valueProperty = new LogEventProperty(field, new ScalarValue(value));
             var tagsProperty = BuildTagsProperty(tags.ToDictionary());
             var properties = new[] {contextProperty, nameProperty, valueProperty, tagsProperty};
 

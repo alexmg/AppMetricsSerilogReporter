@@ -67,7 +67,8 @@ namespace AppMetricsSerilogReporter.Example
             {
                 Name = "MyCounter",
                 Context = nameof(RunCounter),
-                Tags = new MetricTags("delay", $"{delay}")
+                Tags = new MetricTags("delay", $"{delay}"),
+                ReportSetItems = true
             };
 
             while (!token.IsCancellationRequested)
@@ -110,7 +111,8 @@ namespace AppMetricsSerilogReporter.Example
                 Name = "MyMeter",
                 Context = nameof(RunMeter),
                 Tags = new MetricTags("delay", "random"),
-                MeasurementUnit = Unit.Calls
+                MeasurementUnit = Unit.Calls,
+                ReportSetItems = true
             };
 
             var random = new Random();
