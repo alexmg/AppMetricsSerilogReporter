@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <Description>App Metrics reporter that writes metric values to Serilog as structured log events.</Description>
-    <VersionPrefix>0.1.0</VersionPrefix>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <VersionPrefix>0.2.0</VersionPrefix>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>AppMetricsSerilogReporter</PackageId>
