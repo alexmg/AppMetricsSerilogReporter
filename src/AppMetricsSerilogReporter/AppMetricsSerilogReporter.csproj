@@ -12,7 +12,7 @@
   <PropertyGroup>
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <Authors>Alex Meyer-Gleaves</Authors>
-    <Description>App Metrics reporter that writes metric values to Serilog as structured log events.</Description>
+    <Description>AppMetrics reporter that writes metric values to Serilog as structured log events.</Description>
     <PackageTags>appmetrics;metrics;serilog;reporting</PackageTags>
     <PackageProjectUrl>https://github.com/alexmg/AppMetricsSerilogReporter</PackageProjectUrl>
     <PackageReleaseNotes>Release notes are at https://github.com/alexmg/AppMetricsSerilogReporter/releases</PackageReleaseNotes>
