@@ -1,15 +1,12 @@
-version: 0.2.{build}
+version: '{build}'
 
-os: Visual Studio 2017
-
-skip_tags: true
-
-clone_depth: 1
+image:
+- Visual Studio 2017
 
 configuration: Release
 
 before_build:
-- cmd: dotnet --version
+- cmd: dotnet --info
 - cmd: dotnet restore --verbosity m
 
 after_build:
@@ -17,4 +14,3 @@ after_build:
 
 artifacts:
 - path: src\**\*.nupkg
-  name: MyGet

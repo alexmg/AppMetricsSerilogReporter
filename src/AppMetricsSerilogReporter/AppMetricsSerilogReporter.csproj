@@ -1,19 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>App Metrics reporter that writes metric values to Serilog as structured log events.</Description>
-    <VersionPrefix>0.2.0</VersionPrefix>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageId>AppMetricsSerilogReporter</PackageId>
+    <NoWarn>$(NoWarn);NU5105</NoWarn>
+  </PropertyGroup>
+
+  <!-- Package properties -->
+  <PropertyGroup>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <Authors>Alex Meyer-Gleaves</Authors>
+    <Description>App Metrics reporter that writes metric values to Serilog as structured log events.</Description>
     <PackageTags>appmetrics;metrics;serilog;reporting</PackageTags>
-    <PackageReleaseNotes>Release notes are at https://github.com/alexmg/AppMetricsSerilogReporter/releases</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/alexmg/AppMetricsSerilogReporter</PackageProjectUrl>
+    <PackageReleaseNotes>Release notes are at https://github.com/alexmg/AppMetricsSerilogReporter/releases</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/alexmg/AppMetricsSerilogReporter</RepositoryUrl>
-    <Authors>Alex Meyer-Gleaves</Authors>
+  </PropertyGroup>
+
+  <!-- Versioning -->
+  <Target Name="BuildMetadata" BeforeTargets="MinVer">
+    <PropertyGroup>
+      <APPVEYOR_BUILD_NUMBER Condition="'$(APPVEYOR_BUILD_NUMBER)' == ''">0</APPVEYOR_BUILD_NUMBER>
+      <MinVerBuildMetadata>build.$(APPVEYOR_BUILD_NUMBER)</MinVerBuildMetadata>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="FileVersion" AfterTargets="MinVer">
+    <PropertyGroup>
+      <FileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(APPVEYOR_BUILD_NUMBER)</FileVersion>
+    </PropertyGroup>
+  </Target>
+
+  <!-- SourceLink properties -->
+  <PropertyGroup>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
@@ -22,7 +45,11 @@
 
   <ItemGroup>
     <PackageReference Include="App.Metrics.Core" Version="3.0.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All" />
+    <PackageReference Include="MinVer" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Serilog" Version="2.8.0" />
   </ItemGroup>
 
